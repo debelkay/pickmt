@@ -1,0 +1,41 @@
+...Deborah Kane 20150209...
+First iteration of code.
+Goal: Main structure for picking GUI to produce Matlab structures. See Step 2 below.
+
+
+
+----------------------------------------
+Step 0: Outside of GUI
+Load metadata and waveforms for one event into a Matlab structure.
+Metadata includes: stationID, location info, event Mw, station locations, etc.
+
+
+Step 1: Initialize control GUI, using data structure as input
+Figure 1 appears, with:
+	- event metadata (event ID, Mw)
+	- map of event and stations, colorcoded by status and labeled
+	- pulldown list of all stations, with an indicator for picked/notpicked
+	- space to display results of inversion, including error and deltaV
+	- button to compute mij (make automatic?)
+	- space for a beachball and scaled isotropic ball for solution
+	- button to create Fig 4
+User selects a station from the list.
+
+
+Step 2: Picking via picking GUI.
+
+Figure 2 appears for selected station, with:
+	- waveforms rotated into RTZ
+	- 6 synthetics
+
+Figure 3 appears with:
+	- picking menu, similar to current menu
+
+After picking is finished and at least 3 stations have been selected, allow for Fig 4 to be generated:
+	- all waveforms and current best fit synthetics scaled to display all
+
+After each station is analyzed, save results.
+
+Step 3: Post-picking analysis. Separate set of codes.
+
+
