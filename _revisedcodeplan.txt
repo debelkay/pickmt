@@ -1,0 +1,27 @@
+DKane 20150316
+
+Before running code:
+Create a .mat file for each event.
+.mat file contains a structure of Nsta rows, with metadata and integrated/rotated waveforms.
+
+
+Start picking codes, input is list of .mat structures in path
+
+For each event in list:
+Create Figure 1
+  eventID, Mw, map of stations and event, drop down list of stations in structure
+  expand structure for additional fields for picking
+User chooses station from list
+Create Figure 2
+  RTZ waveforms
+  RTZ synthetic waveforms based on input metadata - save to structure
+Create Figure 3
+  picking menu, similar to old one
+User picks phases for displayed set of waveforms, then selects 'done'
+Figure 1 updates pulldown list to indicate that station has been picked
+Once 3+ stations have been picked:
+  compute mij for current picks after each station is finished
+  update Fig 1 with 6 component values, deltaV, and beachball plot
+
+
+
