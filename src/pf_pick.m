@@ -19,7 +19,7 @@ Qapp = 1;	% 1 = apply Azimi Q operator, 2 = do not apply (if attenuation already
 % (Can manually change f0 here if needed).
 M0 = 10 .^ (1.5 * indata(1).Mw + 9.05);		% in N-m
 r = ((7/16) * (M0/sigm)) ^ (1/3);		% radius of circular crack in m
-f0 = 0.32 * bet / r;				$ corner frequency under assumptions.
+f0 = 0.32 * bet / r;				% corner frequency under assumptions.
 
 
 

@@ -40,8 +40,8 @@ h_dumpZ =   uicontrol('Style','checkbox','String','Z','Position',[125 25 50 50],
 h_dumplabel = uicontrol('Style','text','String','Bad trace:','Position',[25 70 75 25])
 
 
-% h_FILTER =  uicontrol('Style','popupmenu','String',{'no filter','HP 20Hz','HP 0.01'},'Position',[25,125,150,50],'Callback',{@select_FILTER});
-h_FILTER =  uicontrol('Style','popupmenu','String',{'no filter','HP 0.01Hz','HP 0.1Hz','HP 1Hz','HP 5Hz','HP 10Hz','HP 60Hz','HP 100Hz','LP 40Hz','LP 100Hz','BP 10-100Hz'},'Position',[25,125,150,50],'Callback',{@select_FILTER});
+% % h_FILTER =  uicontrol('Style','popupmenu','String',{'no filter','HP 20Hz','HP 0.01'},'Position',[25,125,150,50],'Callback',{@select_FILTER});
+% h_FILTER =  uicontrol('Style','popupmenu','String',{'no filter','HP 0.01Hz','HP 0.1Hz','HP 1Hz','HP 5Hz','HP 10Hz','HP 60Hz','HP 100Hz','LP 40Hz','LP 100Hz','BP 10-100Hz'},'Position',[25,125,150,50],'Callback',{@select_FILTER});
 h_CLEAR = uicontrol('Style','popupmenu','String',{'Clear:','time_P','time_nf','time_S','R_P','R_nf','R_S','T_P','T_nf','T_S','V_P','V_nf','V_S'},'Position',[25 75 150 50],'Callback',{@select_CLEAR});
 h_QUAL = uicontrol('Style','popupmenu','String',{'Qual','A','B','C'},'Position',[200 150 80 20],'Callback',{@select_QUAL});
 
@@ -242,73 +242,73 @@ h_COMMENT = uicontrol('Style','pushbutton','String','COMMENT','Position',[200,10
 
 
 
-    function select_FILTER(h_FILTER,eventdata)
-        str = get(h_FILTER,'String');
-        val = get(h_FILTER,'Value');
-        
-        switch str{val};
-            case 'no filter'
-                figure(fh); clf
-                filterandplot(fh,wfdata);
-                mydata = guidata(fw); mydata.FILTER = []; guidata(fw,mydata)
-            case 'HP 0.01Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[0.01/(1/wfdata.DELTA) 0.9999],1);
-                mydata = guidata(fw); mydata.FILTER=0.01; guidata(fw,mydata)
-                
-            case 'HP 0.1Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[0.1/(1/wfdata.DELTA) 0.9999],1);
-                mydata = guidata(fw); mydata.FILTER=0.1; guidata(fw,mydata)
-
-            case 'HP 1Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[1/(1/wfdata.DELTA) 0.9999],1);
-                mydata = guidata(fw); mydata.FILTER=1; guidata(fw,mydata)
-                
-            case 'HP 5Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[5/(1/wfdata.DELTA) 0.9999],1);
-                mydata = guidata(fw); mydata.FILTER=5; guidata(fw,mydata)
-                
-            case 'HP 10Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[10/(1/wfdata.DELTA) 0.9999],1);
-                mydata = guidata(fw); mydata.FILTER=10; guidata(fw,mydata)
-            
-            case 'HP 60Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[60/(1/wfdata.DELTA) 0.9999],1);
-                mydata = guidata(fw); mydata.FILTER=60; guidata(fw,mydata)
-                
-            case 'HP 100Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[100/(1/wfdata.DELTA) 0.9999],1);
-                mydata = guidata(wf); mydata.FILTER=100; guidata(fw,mydata)
-                
-            case 'LP 40Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[0.0001 40/(1/wfdata.DELTA)],1);
-                mydata = guidata(wf); mydata.FILTER=-40; guidata(fw,mydata)
-                
-            case 'LP 100Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[0.0001 100/(1/wfdata.DELTA)],1);
-                mydata = guidata(wf); mydata.FILTER=-100; guidata(fw,mydata)
-                
-            case 'BP 10-100Hz'
-                figure(fh); clf
-                filterandplot(fh,wfdata,[10/(1/wfdata.DELTA) 100/(1/wfdata.DELTA)],1);
-                mydata = guidata(wf); mydata.FILTER=10-100i; guidata(fw,mydata)
-                
-            
+%     function select_FILTER(h_FILTER,eventdata)
+%         str = get(h_FILTER,'String');
+%         val = get(h_FILTER,'Value');
+%         
+%         switch str{val};
+%             case 'no filter'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata);
+%                 mydata = guidata(fw); mydata.FILTER = []; guidata(fw,mydata)
+%             case 'HP 0.01Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[0.01/(1/wfdata.DELTA) 0.9999],1);
+%                 mydata = guidata(fw); mydata.FILTER=0.01; guidata(fw,mydata)
+%                 
+%             case 'HP 0.1Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[0.1/(1/wfdata.DELTA) 0.9999],1);
+%                 mydata = guidata(fw); mydata.FILTER=0.1; guidata(fw,mydata)
+% 
+%             case 'HP 1Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[1/(1/wfdata.DELTA) 0.9999],1);
+%                 mydata = guidata(fw); mydata.FILTER=1; guidata(fw,mydata)
+%                 
+%             case 'HP 5Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[5/(1/wfdata.DELTA) 0.9999],1);
+%                 mydata = guidata(fw); mydata.FILTER=5; guidata(fw,mydata)
+%                 
+%             case 'HP 10Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[10/(1/wfdata.DELTA) 0.9999],1);
+%                 mydata = guidata(fw); mydata.FILTER=10; guidata(fw,mydata)
+%             
+%             case 'HP 60Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[60/(1/wfdata.DELTA) 0.9999],1);
+%                 mydata = guidata(fw); mydata.FILTER=60; guidata(fw,mydata)
+%                 
+%             case 'HP 100Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[100/(1/wfdata.DELTA) 0.9999],1);
+%                 mydata = guidata(wf); mydata.FILTER=100; guidata(fw,mydata)
+%                 
+%             case 'LP 40Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[0.0001 40/(1/wfdata.DELTA)],1);
+%                 mydata = guidata(wf); mydata.FILTER=-40; guidata(fw,mydata)
+%                 
+%             case 'LP 100Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[0.0001 100/(1/wfdata.DELTA)],1);
+%                 mydata = guidata(wf); mydata.FILTER=-100; guidata(fw,mydata)
+%                 
+%             case 'BP 10-100Hz'
+%                 figure(fh); clf
+%                 filterandplot(fh,wfdata,[10/(1/wfdata.DELTA) 100/(1/wfdata.DELTA)],1);
+%                 mydata = guidata(wf); mydata.FILTER=10-100i; guidata(fw,mydata)
+%                 
+%             
  
 %             case 'HP 0.01'
 %                 figure(fh); clf
 %                 filterandplot(fh,wfdata,[0.01 0.9999])
 %                 mydata = guidata(fw); mydata.FILTER=0.01; guidata(fw,mydata)
-        end
-    end
+%         end
+%     end
        
     function select_CLEAR(h_CLEAR,eventdata)
         str = get(h_CLEAR,'String')

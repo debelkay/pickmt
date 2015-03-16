@@ -17,13 +17,13 @@ if isempty(savepicks(i).t_nf)==1; savepicks(i).t_nf = nan; end;
 if isempty(savepicks(i).t_S)==1; savepicks(i).t_S = nan; end;
 
 
-%% save filtered waveforms (must filter again since this information is only in GUI)
-if isempty(savepicks(i).FILTER)==0
-    [f_dH1,f_dH2,f_dZ] = filterandplot(fh,savepicks(i),[(savepicks(i).FILTER*savepicks(i).DELTA) 0.9999],0);
-    savepicks(i).f_dH1 = f_dH1;
-    savepicks(i).f_dH2 = f_dH2;
-    savepicks(i).f_dZ = f_dZ;
-end
+% %% save filtered waveforms (must filter again since this information is only in GUI)
+% if isempty(savepicks(i).FILTER)==0
+%     [f_dH1,f_dH2,f_dZ] = filterandplot(fh,savepicks(i),[(savepicks(i).FILTER*savepicks(i).DELTA) 0.9999],0);
+%     savepicks(i).f_dH1 = f_dH1;
+%     savepicks(i).f_dH2 = f_dH2;
+%     savepicks(i).f_dZ = f_dZ;
+% end
 
 
 %% add structure tag for person picking
