@@ -1,6 +1,15 @@
+...Deborah Kane 20150316...
+Now allows picking, including selection of station from (ugly) dropdown menu.
+Next goal: add code for inverting moment tensor results. 
+Also update picking code to allow user to select pulse duration (see MB adjustments to code)
+
+
 ...Deborah Kane 20150209...
 First iteration of code.
 Goal: Main structure for picking GUI to produce Matlab structures. See Step 2 below.
+
+
+
 
 
 
