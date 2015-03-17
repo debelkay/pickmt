@@ -1,0 +1,21 @@
+% add necessary fields to structure
+Nsta = length(indata);
+indata(Nsta).sta = nan;
+indata(Nsta).t_P = nan;
+indata(Nsta).t_nf = nan;
+indata(Nsta).t_S = nan;
+indata(Nsta).R_P = nan;
+indata(Nsta).R_nf = nan;
+indata(Nsta).R_S = nan;
+indata(Nsta).T_P = nan;
+indata(Nsta).T_nf = nan;
+indata(Nsta).T_S = nan;
+indata(Nsta).V_P = nan;
+indata(Nsta).V_nf = nan;
+indata(Nsta).V_S = nan;
+indata(Nsta).FLAG = [];
+indata(Nsta).COMMENT = [];
+indata(Nsta).FILTER = [];
+indata(Nsta).dumpR = [];
+indata(Nsta).dumpT = [];
+indata(Nsta).dumpZ = [];

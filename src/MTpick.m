@@ -24,7 +24,6 @@ pf_pick
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% SKIP THIS STEP FOR NOW, ADD FEATURE AT LATER DATE.
 %% Step 1: Generate Fig 1, allow for selection of station from list. 
 %% Other content in Fig 1 is static until figure is updated.
 
@@ -77,52 +76,14 @@ while donewithsta==0
     createsynthetics
 
     % Create fields for later
-    Nsta = length(indata);
-    indata(Nsta).sta = nan;
-    indata(Nsta).t_P = nan;
-    indata(Nsta).t_nf = nan;
-    indata(Nsta).t_S = nan;
-    indata(Nsta).R_P = nan;
-    indata(Nsta).R_nf = nan;
-    indata(Nsta).R_S = nan;
-    indata(Nsta).T_P = nan;
-    indata(Nsta).T_nf = nan;
-    indata(Nsta).T_S = nan;
-    indata(Nsta).V_P = nan;
-    indata(Nsta).V_nf = nan;
-    indata(Nsta).V_S = nan;
-    indata(Nsta).FLAG = [];
-    indata(Nsta).COMMENT = [];
-    indata(Nsta).FILTER = [];
-    indata(Nsta).dumpR = [];
-    indata(Nsta).dumpT = [];
-    indata(Nsta).dumpZ = [];
+    addfieldsneeded
 
 
 
 
-    % Plot waveforms and synthetics 
-    f2 = figure(2); clf;
-    ax(1) = subplot(3,1,1);
-    plot(indata(ista).t,indata(ista).dR,'linewidth',2)
-    hold on
-    plot(tt,uh1)
-    ylabel('Radial (m)', 'FontSize', 12)
-
-    ax(2) = subplot(3,1,2);
-    plot(indata(ista).t,indata(ista).dT,'linewidth',2)
-    hold on
-    plot(tt,uh2)
-    ylabel('Transverse (m)', 'FontSize', 12)
-
-    ax(3) = subplot(3,1,3);
-    plot(indata(ista).t,indata(ista).dZ,'linewidth',2)
-    hold on
-    plot(tt,uz)
-    xlabel('time (seconds)', 'FontSize',12)
-    ylabel('Vertical (m)', 'FontSize', 12)
-
-    linkaxes([ax(1) ax(2) ax(3)],'x')
+    % Plot waveforms and synthetics
+    plotforpicking
+    
 
 
 
