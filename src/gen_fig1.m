@@ -1,4 +1,4 @@
-function f1=gen_fig1(indata)
+function f1=gen_fig1(savepicks)
 % Preliminary attempt to create new control menu.
 % Note that output of this is automatically stored in variable: 
 % guidata(f1)
@@ -38,7 +38,7 @@ f1y = 4;
 
 
 % dropdown menu
-stalist = [indata.sta];
+stalist = [savepicks.sta];
 %h1 = subplot(f1x,f1y,[11 12]);
 %set(h1,'Units','pixels')
 h_sta = uicontrol('Style','popupmenu',...

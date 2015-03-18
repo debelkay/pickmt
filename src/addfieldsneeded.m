@@ -23,8 +23,9 @@ savepicks(Nsta).dumpR = [];
 savepicks(Nsta).dumpT = [];
 savepicks(Nsta).dumpZ = [];
 
-[savepicks(1:numel(savepicks)).M0] = M0;
-[savepicks(1:numel(savepicks)).eveid] = '1234';  %placeholder
+
+savepicks = arrayfun(@(s) setfield(s,'M0',M0),savepicks)
+savepicks = arrayfun(@(s) setfield(s,'eveid','1234'),savepicks)   %placeholder
 
 [savepicks(1:numel(savepicks)).sta] = indata.sta;
 [savepicks(1:numel(savepicks)).t] = indata.t;

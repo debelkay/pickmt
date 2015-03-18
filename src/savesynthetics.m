@@ -2,7 +2,7 @@
 %
 % Saves synthetic output to structure
 
-indata(ista).syn_t = tt;
-indata(ista).syn_uh1 = uh1;
-indata(ista).syn_uh2 = uh2;
-indata(ista).syn_uz = uz;
+savepicks(ista).syn_t = tt;
+savepicks(ista).syn_uh1 = uh1;
+savepicks(ista).syn_uh2 = uh2;
+savepicks(ista).syn_uz = uz;

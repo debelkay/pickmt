@@ -7,9 +7,9 @@
 % Synmom code is written for source at origin, station at XYZ.
 % Need x,y,z distances in kilometers, and R in meters.
 % Note that depth is negative in this setup.
-xx = indata(ista).distXYZ(1);
-yy = indata(ista).distXYZ(2);
-zz = indata(ista).distXYZ(3);
+xx = savepicks(ista).distXYZ(1);
+yy = savepicks(ista).distXYZ(2);
+zz = savepicks(ista).distXYZ(3);
 R = sqrt(xx^2 + yy^2 + zz^2)*1000;  % m for R
 
 
@@ -53,7 +53,7 @@ for k = 1:6
     tt = 0:dt:length(uZ_syn)*dt-dt;
     
     % rotate to RTZ:
-    [rcm_uh1,rcm_uh2,rcm_uz] = rotatetoRTZ(uhE_syn(k,:),uhN_syn(k,:),uZ_syn(k,:),indata(ista).BAZ);
+    [rcm_uh1,rcm_uh2,rcm_uz] = rotatetoRTZ(uhE_syn(k,:),uhN_syn(k,:),uZ_syn(k,:),savepicks(ista).BAZ);
     
     % convert from cm (output from synmom) to meters to match data:
     r_uh1 = rcm_uh1/100;
