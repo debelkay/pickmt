@@ -14,16 +14,33 @@ set(f1,'Position',[1360,500,300,650])
 f1x = 3;
 f1y = 4;
 
+
+% station list for dropdown menu and other prep
+fullstalist = [savepicks.sta];
+i_good = find(~cellfun(@isempty,{savepicks.Mw})==1);
+stalist = fullstalist(i_good);
+allstaloc = cell2mat({savepicks(i_good).distXYZ}');
+
+
+
 % Event metadata
-%subplot(f1x,f1y,[1 2])
-%text(0,0.5,'eventID')
-%text(0,0.3,'event Mw')
-%text(0,0.1,'Nsta')
-%axis off
+subplot(f1x,f1y,[1 2])
+text(0,0.5,savepicks(i_good(1)).evid)
+text(0,0.3,['Mw ',num2str(savepicks(i_good(1)).Mw)])
+text(0,0.1,['Nsta: ',num2str(length(i_good))])
+axis off
+
 
 % Map of event and stations
-%subplot(f1x,f1y,[5 6 9 10])
-%hold on
+subplot(f1x,f1y,[5 6 9 10])
+hold on
+plot3(allstaloc(:,1),allstaloc(:,2),allstaloc(:,3),'b^')
+plot3(0,0,0,'r*')
+for i=1:size(allstaloc,1)
+    text(allstaloc(i,1),allstaloc(i,2),allstaloc(i,3),stalist(i))
+end
+grid on
+
 
 % mij solution info
 %subplot(f1x,f1y,[3 4])
@@ -41,13 +58,11 @@ f1y = 4;
 
 
 
-% dropdown menu
-fullstalist = [savepicks.sta];
-stalist = fullstalist(~cellfun(@isempty,{savepicks.Mw}));
-stalist = ['station' stalist];
 
+%% GENERATE DROP DOWN MENU OF STATIONS
 %h1 = subplot(f1x,f1y,[11 12]);
 %set(h1,'Units','pixels')
+stalist = ['station' stalist];
 h_sta = uicontrol('Style','popupmenu',...
 			'String', stalist,...
 			'Position', [25,125,150,50],...
