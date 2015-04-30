@@ -50,7 +50,7 @@ while donewithsta==0
     temp = guidata(f1);
 %     keyboard
     if isfield(temp,'sta')==1
-        usesta = temp.sta;
+        usesta = temp.sta
         ista = find(cellfun(@(x) ~isempty(strfind(x,char(usesta))),[savepicks.sta])==1);
     end
     

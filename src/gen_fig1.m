@@ -3,6 +3,10 @@ function f1=gen_fig1(savepicks)
 % Note that output of this is automatically stored in variable: 
 % guidata(f1)
 
+% Update 20150429:
+% Only include stations that have data (that is not always the case for
+% TauTona -- stations without Mw are bad wf)
+
 
 f1 = figure(1);
 guidata(f1)
@@ -38,7 +42,10 @@ f1y = 4;
 
 
 % dropdown menu
-stalist = [savepicks.sta];
+fullstalist = [savepicks.sta];
+stalist = fullstalist(~cellfun(@isempty,{savepicks.Mw}));
+stalist = ['station' stalist];
+
 %h1 = subplot(f1x,f1y,[11 12]);
 %set(h1,'Units','pixels')
 h_sta = uicontrol('Style','popupmenu',...
