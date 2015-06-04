@@ -1,3 +1,7 @@
+ADD:
+- change station color or dropdown label or something in fig 1 after picked
+
+
 ...Deborah Kane 20150316...
 Now allows picking, including selection of station from (ugly) dropdown menu.
 Next goal: add code for inverting moment tensor results. 
