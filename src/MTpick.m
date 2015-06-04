@@ -7,6 +7,7 @@ function [outdata]=MTpick(indata,outname)
 % Input:
 % indata = Matlab structure for a single event with space to save picks, etc.
 %		(has length Nsta)
+% outname = filename for saving output (provide as string with .mat ending)
 %
 %
 % Last updated 20150209
