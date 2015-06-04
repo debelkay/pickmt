@@ -35,13 +35,14 @@ addfieldsneeded
 
 donewithsta=0;
 numstapicked=0;
-
+mij=[];
+deltaV=[];
 
 
 while donewithsta==0
     % Step 1a,1b: Generate Fig 1, and allow for selection of station from list.
     % Other content in Fig 1 is static until figure is updated.
-    f1 = gen_fig1(savepicks);
+    f1 = gen_fig1(savepicks,mij,deltaV);
     uiwait(f1);
 
 
@@ -108,6 +109,8 @@ while donewithsta==0
         keyboard
         conflim = 0.90
         [mij,mij_zerotrace,deltaV,sVolRatio,mw_dev,mw_full,Nsta,Npicks,uu,ftest,stemij]=runmij(savepicks,conflim);
+        
+        
     end
     
 

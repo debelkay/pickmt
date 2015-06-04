@@ -1,4 +1,4 @@
-function f1=gen_fig1(savepicks)
+function f1=gen_fig1(savepicks,mij,deltaV)
 % Preliminary attempt to create new control menu.
 % Note that output of this is automatically stored in variable: 
 % guidata(f1)
@@ -43,18 +43,20 @@ grid on
 
 
 % mij solution info
-%subplot(f1x,f1y,[3 4])
-%text(0,0.5,'space for mij solution')
-%axis off
+subplot(f1x,f1y,[3 4])
+text(0,0.5,'space for mij solution')
+text(0,0.3,['mij = ',num2str(mij)])
+text(0,0.2,['deltaV = ',num2str(deltaV)])
+axis off
 
 % mij analysis
-%subplot(f1x,f1y,7)
-%text(0,0.5,'mij error analysis')
-%axis off
+subplot(f1x,f1y,7)
+text(0,0.5,'mij error analysis')
+axis off
 
 % beachballs
-%subplot(f1x,f1y,8)
-%text(0,0.5,'future beachball here')
+subplot(f1x,f1y,8)
+text(0,0.5,'future beachball here')
 
 
 
