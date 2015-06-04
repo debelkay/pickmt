@@ -25,7 +25,7 @@ allstaloc = cell2mat({savepicks(i_good).distXYZ}');
 
 % Event metadata
 subplot(f1x,f1y,[1 2])
-text(0,0.5,savepicks(i_good(1)).evid)
+text(0,0.5,savepicks(i_good(1)).eveid)
 text(0,0.3,['Mw ',num2str(savepicks(i_good(1)).Mw)])
 text(0,0.1,['Nsta: ',num2str(length(i_good))])
 axis off

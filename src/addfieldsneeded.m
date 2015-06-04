@@ -22,10 +22,11 @@ savepicks(Nsta).FILTER = [];
 savepicks(Nsta).dumpR = [];
 savepicks(Nsta).dumpT = [];
 savepicks(Nsta).dumpZ = [];
+savepicks(Nsta).eveid = nan;
 
 
 savepicks = arrayfun(@(s) setfield(s,'M0',M0),savepicks)
-savepicks = arrayfun(@(s) setfield(s,'eveid','1234'),savepicks)   %placeholder
+%savepicks = arrayfun(@(s) setfield(s,'eveid','1234'),savepicks)   %placeholder
 
 [savepicks(1:numel(savepicks)).sta] = indata.sta;
 [savepicks(1:numel(savepicks)).t] = indata.t;
@@ -36,7 +37,7 @@ savepicks = arrayfun(@(s) setfield(s,'eveid','1234'),savepicks)   %placeholder
 [savepicks(1:numel(savepicks)).dN] = indata.dN;
 [savepicks(1:numel(savepicks)).dZ] = indata.dZ;
 [savepicks(1:numel(savepicks)).distXYZ] = indata.distXYZ;
-
+[savepicks(1:numel(savepicks)).eveid] = indata.eveid;
 
 
 
