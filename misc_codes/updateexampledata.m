@@ -7,6 +7,7 @@ for i=1:length(exampledata)
     exampledata(i).dZ = exampledata(i).vdataZ;
     
     exampledata(i).distXYZ = (exampledata(i).stXYZ - exampledata(i).evXYZ)/1e3;
+    exampledata(i).evid = '1001'
 end
 
 exampledata = rmfield(exampledata,{'vdataE','vdataN','vdataZ','evloc',...
