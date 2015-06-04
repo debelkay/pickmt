@@ -1,4 +1,5 @@
-function [mij,mij_zerotrace,deltaV,sVolRatio,mw_dev,mw_full,Nsta,Npicks,uu,ftest,varmij]=runmij(picks,conflim)
+function out=runmij(picks,conflim)
+% function [mij,mij_zerotrace,deltaV,sVolRatio,mw_dev,mw_full,Nsta,Npicks,uu,ftest,varmij]=runmij(picks,conflim)
 % runmij.m -- cleaned up
 % script to load stuff to compute moment tensor after saving as structures
 
@@ -91,6 +92,21 @@ Nsta = size(uu,2);
 tempu = uu(4:end,:);
 tempunantest = abs(isnan(tempu)-1);
 Npicks = sum(tempunantest(:));
+
+
+% reformat stuff to save into a structure:
+out.mij = mij;
+out.mij_zerotrace = mij_zerotrace;
+out.deltaV = deltaV;
+out.sVolRatio = sVolRatio;
+out.mw_dev = mw_dev;
+out.mw_full = mw_full;
+out.Nsta = Nsta;
+out.Npicks = Npicks;
+out.uu = uu;
+out.ftest = ftest;
+out.varmij = varmij;
+
 
 end
 
