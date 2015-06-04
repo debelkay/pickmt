@@ -107,7 +107,7 @@ mij_zerotrace = [mijzero(1:2) -1*(mijzero(1)+mijzero(2)) mijzero(3:5)];
     trace_mij = trace(sqmij);
     eig_mij = eig(sqmij);     %diagonalized moment tensor
     dev = eig_mij - trace_mij/3;  % the deviatoric portion of the moment tensor
-    scalerMo = sum(dev(dev>0));  %scaler seismic moment 
+    scalerMo = abs(max(dev));   % scalar seismic moment
     mw_dev = 2/3*(log10(scalerMo)-9.1);
 
     mu = 3.76e10;  %shear modulus in Pa
