@@ -7,6 +7,9 @@ function f1=gen_fig1(savepicks,mij,deltaV)
 % Only include stations that have data (that is not always the case for
 % TauTona -- stations without Mw are bad wf)
 
+% Update 20150604:
+% Now displays mij, deltaV if known
+
 
 f1 = figure(1);
 guidata(f1)
