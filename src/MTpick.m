@@ -1,4 +1,4 @@
-function [outdata]=MTpick(indata)
+function [outdata]=MTpick(indata,outname)
 %% MTpick is a Matlab function for initializing a GUI to pick phase amplitudes
 % for moment tensor analysis.
 %
@@ -106,9 +106,9 @@ while donewithsta==0
     %% Compute moment tensor if at least 3 stations have picks
     
     if numstapicked >= 3
-        keyboard
+%         keyboard
         conflim = 0.90
-        [mij,mij_zerotrace,deltaV,sVolRatio,mw_dev,mw_full,Nsta,Npicks,uu,ftest,stemij]=runmij(savepicks,conflim);
+        mijresults = runmij(savepicks,conflim);
         
         
     end
@@ -117,3 +117,7 @@ while donewithsta==0
     
     
 end
+
+
+% save final picks and solutions
+save(outname, 'savepicks','mijresults')
