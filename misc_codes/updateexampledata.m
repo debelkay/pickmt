@@ -1,3 +1,4 @@
+% note local path
 load ../../old_pickgui/exampledata/examplewfdata.mat
 
 % rename as needed
