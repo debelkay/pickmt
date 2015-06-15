@@ -3,7 +3,7 @@ function savepicks=save_pickdata(fh,savepicks,guiout,i)
 %
 % Saves picking info into structure
 %
-% Last updated 20150209
+% Last updated 20150615 to fix unknown user problem
 % Deborah Kane <deborah.kane@gmail.com>
 
 
@@ -27,13 +27,12 @@ if isempty(savepicks(i).t_S)==1; savepicks(i).t_S = nan; end;
 
 
 %% add structure tag for person picking
+%% NEED TO FIGURE OUT WHAT TO DO ABOUT NON-MAC OS
 [tempa,tempb] = system('who -m');
 if strcmp(tempb(1,1),'d')==1
     savepicks(i).auth = {'Deb'};
-elseif strcmp(tempb(1,1),'c')==1
-    savepicks(i).auth = {'Cody'};
 else
-    savepicks(i).auth = {strcmp(tempb(1,1:5))};
+    savepicks(i).auth = {tempb(1:min(length(tempb),5))};
 end
 
 
